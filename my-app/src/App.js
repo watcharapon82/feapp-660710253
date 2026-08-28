@@ -1,33 +1,30 @@
-import ProfileCard from './components/ProfileCard';
-import './App.css';
-
-const members = [
-  { id: 1, name: 'ไก่ มน', nickname: 'กด',
-    major: 'IT', favorites: ['ชาไทย', 'ลิง'] },
-
-    { id: 1, name: 'ชาว ไร่', nickname: 'พา',
-    major: 'CS', favorites: ['น้ำแดง', 'ช้าง'] },
-
-    { id: 1, name: 'มา รัน', nickname: 'ที',
-    major: 'CS', favorites: ['น้ำแข็ง', 'งู'] }
-  // 👉 เพิ่มสมาชิกคนอื่น ๆ ของกลุ่มที่นี่
-];
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Movie from './pages/Movie';
+import About from './pages/About';
+import MovieDetail from './pages/MovieDetail';
+import NotFound from './pages/Notfound';
 
 function App() {
   return (
-    <div className="container">
-      <h1>สมาชิกกลุ่มของเรา</h1>
-      <div className="card-row">
-        {members.map((m) => (
-          <ProfileCard
-            key={m.id}
-            name={m.name}
-            nickname={m.nickname}
-            major={m.major}
-            favorites={m.favorites}
-          />
-        ))}
-      </div>
+    <div className="flex min-h-screen flex-col bg-slate-50">
+      <Navbar />
+
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movie />} />
+          <Route path="/movies/:id" element={<MovieDetail />} />
+          <Route path="/about" element={<About />} />
+          
+          {/* ดักทุก URL ที่ไม่ตรงกับด้านบน */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+
+      <Footer />
     </div>
   );
 }
