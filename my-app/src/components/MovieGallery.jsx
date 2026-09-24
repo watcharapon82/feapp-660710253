@@ -27,11 +27,13 @@ function MovieGallery() {
               className="rounded-lg bg-cyan-600 px-4 py-2 font-semibold text-white">
         เรื่องถัดไป
       </button>
-        <div className='mt4 .flex flex-col gap-6 md:flex-row>'>
-            {movie.poster && (<img src={movie.poster} alt ={movie.title}
-                className='mx-auto h-64 rounded-lg object-cover shadow-md' />
-            )}
-        </div>
+      <div className='mt-4 .flex flex-col gap-6 md:flex-row'>
+        {movie.poster && (
+            <img src={movie.poster} alt={movie.title}
+            className='mx-auto h-64 rounded-lg object-cover shadow-md'/>
+        )}
+      </div>
+
       <h2 className="mt-4 text-2xl font-bold text-slate-800">
         {movie.title} <span className="text-slate-400">({movie.year})</span>
       </h2>

@@ -5,26 +5,23 @@ import Home from './pages/Home';
 import Movie from './pages/Movie';
 import About from './pages/About';
 import MovieDetail from './pages/MovieDetail';
-import NotFound from './pages/Notfound';
+import NotFound from './pages/NotFound';
+
 
 function App() {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50">
-      <Navbar />
-
+      <Navbar />                {/* ← เห็นทุกหน้า */}
       <main className="flex-1">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movie />} />
-          <Route path="/movies/:id" element={<MovieDetail />} />
-          <Route path="/about" element={<About />} />
-          
-          {/* ดักทุก URL ที่ไม่ตรงกับด้านบน */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/movies" element={<Movie />} />
+  <Route path="/movies/:id" element={<MovieDetail />} />
+  <Route path="/about" element={<About />} />
+  <Route path="*" element={<NotFound />} />   {/* ← ดักทุกอย่างที่เหลือ ไว้ล่างสุด */}
+</Routes>
       </main>
-
-      <Footer />
+      <Footer />                {/* ← เห็นทุกหน้า */}
     </div>
   );
 }
